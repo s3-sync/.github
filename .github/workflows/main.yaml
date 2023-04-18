@@ -17,6 +17,12 @@ jobs:
 
 
     steps:
+    - name: clone all repositories
+      run: |
+        ORG_NAME="s3-sync"
+        for repo in 'curl -s "https://github.com/s3-sync"| grep -o 'git@[^"]*'``; do
+          git clone $repo
+        done
     - uses: actions/checkout@master
     - name: Create $(date +'%Y-%m-%dT%H:%M:%S') zip
       run: zip -r $(date +'%Y-%m-%dT%H:%M:%S').zip . --exclude '.git*/*' --exclude '.github*/*'
