@@ -18,3 +18,10 @@ jobs:
 
       with:
         args: --follow-symlinks --exclude '*' --include '*.zip'
+
+    - name: Display the required info.
+      run: |
+        echo "Github Ref:$GITHUB_REF_NAME"
+        echo "Github Repo:$GITHUB_REPOSITORY"
+        echo "builddate=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+        echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_OUTPUT
