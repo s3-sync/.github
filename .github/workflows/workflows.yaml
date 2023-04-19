@@ -15,7 +15,7 @@ jobs:
       AWS_REGION: ${{ secrets.AWS_REGION }}
 
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
     - name: Create $(date +'%Y-%m-%dT%H:%M:%S') zip
       run: zip -r $(date +'%Y-%m-%dT%H:%M:%S').zip . --exclude '.git*/*' --exclude '.github*/*'
     - uses: jakejarvis/s3-sync-action@v0.3.1
